@@ -1,0 +1,45 @@
+{
+    "name": "code-flowchart",
+    "displayName": "code-flowchart",
+    "description": "A flow-chart generator",
+    "version": "0.0.1",
+    "publisher": "LucasBadico",
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.showJsFlowchart"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.showJsFlowchart",
+            "title": "Show JS Flowchart"
+        }],
+        "menus": {
+            "editor/title": [{
+                "command": "extension.showJsFlowchart",
+                "when": "resourceLangId == js"
+            }]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "js2flowchart": "^0.0.13-alpha"
+    }
+}
